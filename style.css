@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: black;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    /* background: rgba(255, 255, 255,0.1); */
+}
+
+.main .navigation {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /* background: rgba(255,255,255,0.2); */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 5s;
+}
+
+.main .navigation span {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    transform: translate(calc(70px*var(--x)),calc(70px*var(--y)));
+    transition: transform 0.3s,width 1s , height 1s ;
+    transition-delay: calc(0.1s*var(--i));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main .navigation.active span
+{
+    width: 100px;
+    height: 100px;
+    background: #1f2536;
+    transform: translate(calc(150px*var(--x)),calc(150px*var(--y)));
+}
+.main .navigation span ion-icon
+{
+    transition: 0.5s;
+    font-size: 0em;
+}
+.main .navigation.active span ion-icon
+{
+    font-size: 2.35em;
+    color: white;
+}
+.main .navigation.active span:hover ion-icon
+{
+    color: #03f730;
+    filter: drop-shadow(0 0 2px #03f730) drop-shadow(0 0 5px #03f730) drop-shadow(0 0 15px #03f730) ;
+}
+
+.close
+{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    transition: 1s;
+    transition-delay:0.5s;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main .navigation.active ~ .close
+{
+    width: 90px;
+    height: 90px;  
+    pointer-events:initial;
+    transition-delay: 0.8s; 
+    background: #03f730;
+}
+.main .navigation.active ~ .close ion-icon
+{
+    font: size 3em;
+    scale: 4;
+    color: #10131c;
+}
